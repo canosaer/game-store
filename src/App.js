@@ -10,15 +10,11 @@ import Home from './views/Home'
 import Shop from './views/Shop'
 import Cart from './views/Cart'
 
-import Header from './components/Header'
-
 
 function App() {
 
   return (
     <>
-      <Header />
-
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
