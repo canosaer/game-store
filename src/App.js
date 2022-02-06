@@ -1,25 +1,33 @@
-import './styles/main.scss';
+import './styles/main.scss'
 
 import {
   BrowserRouter,
   Routes,
   Route,
-} from 'react-router-dom';
+} from 'react-router-dom'
 
-import Home from './views/Home';
-import Shop from './views/Shop';
-import Cart from './views/Cart';
+import Home from './views/Home'
+import Shop from './views/Shop'
+import Cart from './views/Cart'
+
+import Header from './components/Header'
+
 
 function App() {
+
   return (
-    <BrowserRouter>
+    <>
+      <Header />
+
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-    </BrowserRouter>
-  );
+      </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
