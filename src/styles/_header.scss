@@ -1,0 +1,113 @@
+@use 'variables';
+@use 'mixins';
+
+.header{
+    @include mixins.default-grid;
+    grid-template-columns: 4.25rem 1fr 4.25rem;
+    grid-template-rows: 5rem;
+    background: black;
+
+    @include mixins.landscape{
+        grid-template-columns: 0.11fr 1fr 0.11fr;
+    }
+
+    button{
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
+    }
+
+    .toggle{
+        color: var(--gray);
+        font-size: 2.25rem;
+        height: 2.25rem;
+        width: 2.25rem;
+        place-self: center center;
+        z-index: 3;
+        border-radius: 0.2rem;
+        padding: 0;
+    }
+
+    .logo{
+        width: 7.25rem;
+        place-self: center center;
+        position: relative;
+        
+        &__container{
+            @include mixins.default-grid;
+            border-left: 1px solid var(--gray);
+            border-right: 1px solid var(--gray);
+        }
+    }
+
+    .cart{
+        position: relative;
+        color: var(--gray);
+        font-size: 2.25rem;
+        height: 2.25rem;
+        width: 2.25rem;
+        place-self: center center;
+        z-index: 3;
+        border-radius: 0.2rem;
+        
+        padding: 0;
+
+    }
+
+    .sidebar{
+        position: fixed;
+        width: 300px;
+        height: 100%;
+        left: -100%;
+        transition: .3s all ease-in;
+        top: 0;
+        z-index: 2;
+        background: whitesmoke;
+        @include mixins.default-grid;
+
+        &__list{
+            margin-top: 7.5rem;
+            @include mixins.default-grid;
+            grid-auto-rows: 3.25rem;
+            justify-content: right;
+            font-size: 1.5rem;
+        }
+
+        &__item{
+            display: flex;
+            justify-content: right;
+            padding-right: 3rem;
+        }
+
+        &__link{
+            color: black;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+      
+        &--open{
+          left: 0;
+        }
+      }
+      
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.5);
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 1;
+        transition: .3s all ease-in;
+      
+        &--open{
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+}

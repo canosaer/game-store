@@ -1,0 +1,6 @@
+@use 'variables';
+@use 'mixins';
+
+.home{
+    @include mixins.default-grid;
+}

@@ -20,7 +20,8 @@ TABLE OF CONTENTS:
 @use 'mixins';
 
 /* 1. Partials =============================== */
-
+@use 'header';
+@use 'home';
 
 
 /* 2. General ================================ */
@@ -31,6 +32,10 @@ TABLE OF CONTENTS:
 
 a{
 	text-decoration: none;
+}
+
+body{
+	background: whitesmoke;
 }
 
 #root{
