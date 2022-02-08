@@ -6,6 +6,10 @@
     height: 25rem;
 	position: relative;
 
+    @include mixins.wide-screen{
+        height: 30rem;
+    }
+
     &__slide{
         position: absolute;
 		height: 100%;
@@ -22,6 +26,10 @@
 		padding: 1.5%;
 		width: 100%;
 		height: 25rem;
+
+        @include mixins.wide-screen{
+            height: 30rem;
+        }
 		
 		&_jabba{
 			background: url(https://images.zmangames.com/filer_public/2f/40/2f40d5cd-abb3-4e9b-a3a5-d49b4ac50966/zll03_spotlight.jpg);
@@ -46,10 +54,18 @@
         background: whitesmoke;
         width: 80%;
         transform: skew(-20deg);
-        left: -2rem;
+        left: -4rem;
         box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
-        padding: 1.5rem 1.5rem 1.5rem 4rem;
+        padding: 1.5rem 2.5rem 1.5rem 6rem;
         z-index: 1;
+
+        @include mixins.medium-screen{
+            padding-left: 10%;
+        }
+
+        @include mixins.wide-screen{
+            top: 28.5rem;
+        }
     }
 
     &__text-container{
@@ -70,5 +86,14 @@
         background: linear-gradient(135deg, #fff23a, #ff5534);
     }
 
+    &__text{
+
+        font-size: 1.1rem;
+
+        
+        @include mixins.wide-screen{
+            font-size: 1.25rem;
+        }
+    }
 
 }
