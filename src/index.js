@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faShoppingCart, faChevronRight, faChevronLeft, faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faShoppingCart)
+library.add(faBars, faShoppingCart, faChevronRight, faChevronLeft, faPlay, faPause)
 
 ReactDOM.render(
   <React.StrictMode>

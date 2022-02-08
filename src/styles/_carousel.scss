@@ -1,0 +1,74 @@
+@use 'variables';
+@use 'mixins';
+
+.carousel{
+    @include mixins.default-grid;
+    height: 25rem;
+	position: relative;
+
+    &__slide{
+        position: absolute;
+		height: 100%;
+		width: 100%;
+    }
+
+    &__image-slot{
+		@include mixins.image-slot;
+	}
+
+    &__image{
+		@include mixins.cover-parent;
+		@include mixins.default-grid;
+		padding: 1.5%;
+		width: 100%;
+		height: 25rem;
+		
+		&_jabba{
+			background: url(https://images.zmangames.com/filer_public/2f/40/2f40d5cd-abb3-4e9b-a3a5-d49b4ac50966/zll03_spotlight.jpg);
+			@include mixins.default-background;
+		}
+
+		&_citadels{
+			background: url(https://images.zmangames.com/filer_public/b0/f5/b0f591c3-92d1-4ae3-ac74-651cb52530d0/wr01_spotlight_v2.jpg);
+			@include mixins.default-background;
+			height: 45rem;
+		}
+
+		&_cryo{
+			background: url(https://images.zmangames.com/filer_public/bf/ff/bfff37e0-e4fc-4403-946b-c012a01dffb4/zm022_spotlight.jpg);
+			@include mixins.default-background;
+		}
+	}
+
+    &__text-shape{
+        position: absolute;
+        top: 23.5rem;
+        background: whitesmoke;
+        width: 80%;
+        transform: skew(-20deg);
+        left: -2rem;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+        padding: 1.5rem 1.5rem 1.5rem 4rem;
+        z-index: 1;
+    }
+
+    &__text-container{
+        transform: skew(20deg);
+    }
+
+    &__heading{
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    &__gradient_jabba{
+        position: absolute;
+        bottom: -9rem;
+        height: 9rem;
+        width: 100%;
+        background: linear-gradient(135deg, #fff23a, #ff5534);
+    }
+
+
+}
