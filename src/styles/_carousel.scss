@@ -39,7 +39,6 @@
 		&_citadels{
 			background: url(https://images.zmangames.com/filer_public/b0/f5/b0f591c3-92d1-4ae3-ac74-651cb52530d0/wr01_spotlight_v2.jpg);
 			@include mixins.default-background;
-			height: 45rem;
 		}
 
 		&_cryo{
@@ -78,12 +77,23 @@
         margin-bottom: 1rem;
     }
 
-    &__gradient_jabba{
+    &__gradient{
         position: absolute;
         bottom: -9rem;
         height: 9rem;
         width: 100%;
-        background: linear-gradient(135deg, #fff23a, #ff5534);
+
+        &_jabba{
+            background: linear-gradient(135deg, #fff23a, #ff5534);
+        }
+
+        &_citadels{
+            background: linear-gradient(135deg, #d7ffff, #00abbf);
+        }
+
+        &_cryo{
+            background: linear-gradient(135deg, #4a1a7a, #b0ebfa);
+        }
     }
 
     &__text{
@@ -109,20 +119,14 @@
 	bottom: 0;
 
 	&__return{
-		cursor: pointer;
-		margin-right: 1rem;
-
+		@include mixins.carousel-button;
 	}
 
 	&__pause{
-		cursor: pointer;
-		margin-right: 1rem;
-
+		@include mixins.carousel-button;
 	}
 
 	&__advance{
-		cursor: pointer;
-		margin-right: 1rem;
-
+		@include mixins.carousel-button;
 	}
 }
