@@ -97,3 +97,32 @@
     }
 
 }
+
+.slide-controls{
+	display: flex;
+	justify-content: space-between;
+	color: white;
+	z-index: 1;
+	margin-bottom: 1rem;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+
+	&__return{
+		cursor: pointer;
+		margin-right: 1rem;
+
+	}
+
+	&__pause{
+		cursor: pointer;
+		margin-right: 1rem;
+
+	}
+
+	&__advance{
+		cursor: pointer;
+		margin-right: 1rem;
+
+	}
+}
