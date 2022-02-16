@@ -5,8 +5,6 @@ import {Context} from '../store/store'
 export default function Cart() {
     const [state, dispatch] = useContext(Context)
     const removeItem = (item) => dispatch ({type: 'REMOVE_ITEM', payload: item})
-
-    console.log(state.products)
    
     return(
         <div>

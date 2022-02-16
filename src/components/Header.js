@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { Link } from 'react-router-dom'
 
 
 export default function Header() {
@@ -23,9 +24,9 @@ export default function Header() {
 
             <aside className={sidebarStyles}>
                 <ul className="sidebar__list">
-                    <li className="sidebar__item"><a className="sidebar__link" href="">Home</a></li>
-                    <li className="sidebar__item"><a className="sidebar__link" href="">Shop</a></li>
-                    <li className="sidebar__item"><a className="sidebar__link" href="">Cart</a></li>
+                    <li className="sidebar__item"><Link to="/" className="sidebar__link">Home</Link></li>
+                    <li className="sidebar__item"><Link to="/shop" className="sidebar__link">Shop</Link></li>
+                    <li className="sidebar__item"><Link to="/cart" className="sidebar__link">Cart</Link></li>
                 </ul>
             </aside>
 
