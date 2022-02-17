@@ -1,28 +1,61 @@
 import React, {useContext} from 'react';
 import Header from '../components/Header'
 import {Context} from '../store/store'
+import { sortByKey, addItemToCart } from '../utilities';
+import ShortUniqueId from 'short-unique-id'
 
 export default function Cart() {
     const [state, dispatch] = useContext(Context)
-    const removeItem = (item) => dispatch ({type: 'REMOVE_ITEM', payload: item})
+
+    const uid = new ShortUniqueId({length:10})
+
+    const removeItem = (item) => {
+        const removedCartItems = state.cart.filter((i) => i.uid !== item.uid)
+        dispatch ({type: 'REMOVE_ITEM', payload: removedCartItems})
+    }
+
+    const visualCart = sortByKey(state.cart, 'title')
+    console.log(visualCart)
    
     return(
         <div>
             <Header />
             <h1>Cart</h1>
-            {state.cart.map((product, i) => {
-                const key = `product--${i}`
-
-                return(
-                    <div key={key}>
+        
+            {Object.entries(visualCart).map((p, i) => {
+                console.log(p[1])
+                const key = `cart-item--${i}`
+                const product = p[1][0]
+                return (
+                    <div className="item" key={key}>
                         <img src={product.image} alt={product.title} />
                         <h4>{product.title}</h4>
                         <p>{product.desc}</p>
                         <strong>Price: {product.price}</strong>
-                        <button onClick={() => removeItem(product)}>Remove</button>
+                        <span>x {p[1].length}</span>
+                        <button onClick={() => removeItem(product)}>-</button>
+                        <button onClick={() => addItemToCart(product, state, dispatch, uid)}>+</button>
                     </div>
                 )
-            })}
+
+           })}
+
         </div>
     )
 }
+
+
+/* 
+{state.cart.map((product, i) => {
+    const key = `product--${i}`
+
+    return(
+        <div key={key}>
+            <img src={product.image} alt={product.title} />
+            <h4>{product.title}</h4>
+            <p>{product.desc}</p>
+            <strong>Price: {product.price}</strong>
+            <button onClick={() => removeItem(product)}>Remove</button>
+        </div>
+    )
+})} */
