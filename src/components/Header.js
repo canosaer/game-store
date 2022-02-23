@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { Link } from 'react-router-dom'
 
 
 export default function Header() {
@@ -15,7 +13,7 @@ export default function Header() {
     const navigate = useNavigate();
 
     return(
-        <section className="header">
+        <header className="header">
             <button className="toggle" onClick={() => setMenuOpen(!menuOpen)}><FontAwesomeIcon className="toggle__bars" icon="bars" /></button>
             <div className="logo__container">
             <button className="logo" onClick={() => navigate('/')}><img className="logo__image" src="https://www.zmangames.com/static/images/zman_white_logo.8bc6e70a08d3.svg" alt="logo"/></button>
@@ -31,6 +29,6 @@ export default function Header() {
             </aside>
 
             <div className={overlayStyles} onClick={() => setMenuOpen(!menuOpen)}></div>
-        </section>
+        </header>
     )
 }
