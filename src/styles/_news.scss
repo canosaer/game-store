@@ -6,6 +6,11 @@
     margin-top: 11rem;
     padding: 1rem;
 
+    @include mixins.landscape{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-gap: 1rem;
+    }
+
     &__heading{
         font-size: 1.2rem;
         text-transform: uppercase;
@@ -13,6 +18,9 @@
         position: relative;
         color: rgba(0,0,0,0.75);
         font-weight: bold;
+
+        grid-row: 1/2;
+        grid-column: 1/-1;
 
         &:after{
             content:"";
@@ -23,6 +31,8 @@
             height: 1px;
             background: black;
         }
+
+        
     }
 
     &__item{
@@ -30,12 +40,20 @@
         margin-bottom: 3rem;
         overflow: hidden;
         position: relative;
+        
+       
+
+
     }
 
     &__image{
         @include mixins.default-img;
         width: 100%;
         height: 19.5rem;
+
+        @include mixins.landscape{
+            height: 20.5rem
+        }
     }
 
     &__text-container{
