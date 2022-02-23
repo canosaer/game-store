@@ -2,14 +2,7 @@ const news = {
     heading: 'Featured News',
     stories: [
         {
-            image: 'https://images.zmangames.com/filer_public/24/86/248604c9-d303-4524-8233-22012f1cac4f/zll03_prev_anc_rect.png',
-            game: 'Love Letter',
-            headline: "Announcing Star Wars: Jabba's Palace - A Love Letter Game",
-            id: 2022223001,
-            excerpt: "The lair of Jabba, the Hutt is a place of danger and deception. In Star Wars: Jabba’s Palace - A Love Letter Game, players compete using members of the Rebel Alliance and denizens of Jabba’s Palace in a game of rebel bravery and vile deceit.",
-        },
-        {
-            image: 'https://images.zmangames.com/filer_public/17/16/1716d64a-e323-451b-b9e1-97e238b4c69d/twitter-facebook_rectagle-5million.png',
+            image: 'https://images.zmangames.com/filer_public/a4/a9/a4a9ae47-e309-4f3a-9522-f8d74e5cb74e/zm7142_prev3_rect.png',
             game: 'Pandemic',
             headline: "Pandemic: Over 5 Million Copies Sold",
             id: 2022223002,
@@ -21,7 +14,15 @@ const news = {
             headline: "Announcing Ultimate Railroads",
             id: 2022223003,
             excerpt: "Perfect for die hard fans or newcomers alike, Ultimate Railroads brings you the base game of Russian Railroads bundled together with all of its expansions and more. Now back on shelves after years out of print, this classic comes complete with not only the game and expansions you love, but a few additions that make this a must own.",
-        }
+        },
+        {
+            image: 'https://images.zmangames.com/filer_public/24/86/248604c9-d303-4524-8233-22012f1cac4f/zll03_prev_anc_rect.png',
+            game: 'Love Letter',
+            headline: "Announcing Star Wars: Jabba's Palace - A Love Letter Game",
+            id: 2022223001,
+            excerpt: "The lair of Jabba, the Hutt is a place of danger and deception. In Star Wars: Jabba’s Palace - A Love Letter Game, players compete using members of the Rebel Alliance and denizens of Jabba’s Palace in a game of rebel bravery and vile deceit.",
+        },
+        
     ]
 }
 

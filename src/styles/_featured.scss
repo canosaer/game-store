@@ -1,0 +1,7 @@
+@use 'variables';
+@use 'mixins';
+
+.featured-games{
+    @include mixins.default-grid;
+    display: none;
+}

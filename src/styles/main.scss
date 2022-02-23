@@ -23,6 +23,9 @@ TABLE OF CONTENTS:
 @use 'header';
 @use 'home';
 @use 'carousel';
+@use 'news';
+@use 'featured';
+@use 'footer';
 
 
 /* 2. General ================================ */
@@ -37,6 +40,7 @@ a{
 
 body{
 	background: whitesmoke;
+	font-family:'Lucida Sans', sans-serif;
 }
 
 #root{

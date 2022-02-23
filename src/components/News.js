@@ -12,7 +12,7 @@ export default function News() {
                 const key = `article-${story.id}`
 
                 return(
-                    <Link to="/" key={key} className="news__image-slot">
+                    <Link to="/" key={key} className="news__item">
                         <img className="news__image" loading="lazy" src={story.image} alt={story.headline} />
                         <div className="news__text-container">
                             <h4 className="news__game">{story.game}</h4>
