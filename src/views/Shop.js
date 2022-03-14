@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import {Context} from '../store/store'
 import ShortUniqueId from 'short-unique-id'
 import { sortByKey, addItemToCart } from '../utilities'
@@ -12,22 +13,28 @@ export default function Shop() {
 
 
     return(
-        <div>
+        <main className="shop">
             <Header />
-            <h1>Shop</h1>
-            {state.products.map((product, i) => {
-                const key = `product--${i}`
+            <h2 className="shop__heading">Featured Products</h2>
+            <div className="shop__gallery-container">
+                <section className="shop__gallery">
+                    {state.products.map((product, i) => {
+                        const key = `product--${i}`
 
-                return(
-                    <div key={key}>
-                        <img src={product.image} alt={product.title} />
-                        <h4>{product.title}</h4>
-                        <p>{product.desc}</p>
-                        <strong>Price: {product.price}</strong>
-                        <button onClick={() => addItemToCart(product, state, dispatch, uid)}>Add to Cart</button>
-                    </div>
-                )
-            })}
-        </div>
+                        return(
+                            <div className="product" key={key}>
+                                <img className="product__image" src={product.image} alt={product.title} />
+                                <h4 className="product__title">{product.title}</h4>
+                                <p className="product__desc">Item No. {product.id}</p>
+                                <strong className="product__price">{product.price}</strong>
+                                <button className="product__button" onClick={() => addItemToCart(product, state, dispatch, uid)}>Add to Cart</button>
+                            </div>
+                        )
+                    })}
+                </section>
+            </div>
+            
+            <Footer />
+        </main>
     )
 }
