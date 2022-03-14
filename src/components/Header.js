@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import {Context} from '../store/store'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export default function Header() {
+    const [state, dispatch] = useContext(Context)
     const [menuOpen, setMenuOpen ] = useState(false);
 
     const sidebarStyles = menuOpen ? 'sidebar sidebar--open' : 'sidebar'
@@ -18,7 +20,9 @@ export default function Header() {
             <div className="logo__container">
             <button className="logo" onClick={() => navigate('/')}><img className="logo__image" src="https://www.zmangames.com/static/images/zman_white_logo.8bc6e70a08d3.svg" alt="logo"/></button>
             </div>
-            <button className="cart" onClick={() => navigate('/cart')}><FontAwesomeIcon className="cart__image" icon="shopping-cart" /></button>
+            <button className="cart" onClick={() => navigate('/cart')}><FontAwesomeIcon className="cart__image" icon="shopping-cart" />
+                {state.cart.length > 0 ? <figure className="cart__num">{state.cart.length}</figure> : null}
+            </button>
 
             <aside className={sidebarStyles}>
                 <ul className="sidebar__list">

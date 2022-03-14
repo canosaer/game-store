@@ -52,6 +52,20 @@
         border-radius: 0.2rem;
         padding: 0;
 
+        &__num{
+            position: absolute;
+            bottom: 1.1rem;
+            left: 1.65rem;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            height: 1.4rem;
+            width: 1.4rem;
+            line-height: 1.5;
+            font-weight: bold;
+        }
+
     }
 
     .sidebar{
@@ -109,4 +123,6 @@
           pointer-events: auto;
         }
       }
+
+
 }
