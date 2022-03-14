@@ -56,3 +56,19 @@
   border: none;
   font-size: 1.05rem;
 }
+
+@mixin product-button{
+  background: rgba(0,0,0,0.75);
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 8rem;
+  border-radius: 0.7rem;
+  justify-self: center;
+  padding: 0.5rem;
+
+  &:hover{
+      background: black;
+  }
+}

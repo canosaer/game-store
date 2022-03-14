@@ -71,16 +71,28 @@
     }
 
     &__button{
+        @include mixins.product-button;
+    }
+
+    &__controls{
+        justify-self: center;
+    }
+
+    &__num{
+        margin: 0 1rem;
+    }
+
+    &__remove, &__add{
         background: rgba(0,0,0,0.75);
         border: none;
         color: white;
         text-transform: uppercase;
         cursor: pointer;
-        width: 8rem;
-        border-radius: 0.7rem;
+        width: 2rem;
+        border-radius: 999rem;
         justify-self: center;
         padding: 0.5rem;
-
+      
         &:hover{
             background: black;
         }
