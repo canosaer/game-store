@@ -27,7 +27,7 @@
     &__gallery-container{
         @include mixins.default-grid;
         grid-template-columns: 0.25fr 1fr 0.25fr;
-        margin-bottom: 7rem;
+        margin-bottom: 8.5rem;
     }   
 
     
@@ -76,7 +76,6 @@
 
     &__controls{
         justify-self: center;
-        margin-bottom: 1.5rem;
     }
 
     &__num{
