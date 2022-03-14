@@ -3,5 +3,30 @@
 
 .footer{
     @include mixins.default-grid;
-    display: none;
+    margin-top: 3.5rem;
+	border-top: 1px solid lightgray;
+	padding: 4%;
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.875rem;
+    align-items: center;
+
+	&__text{
+		color: #909097;
+	}
+
+	&__link{
+		color: blue;
+	}
+
+    &__social-icon{
+        background: none;
+        border: none;
+        color: rgba(0,0,0,0.75);
+        font-size: 1.3rem;
+
+        &:hover{
+            color:black;
+        }
+    }
 }
