@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import {Context} from '../store/store'
 import { sortByKey, addItemToCart } from '../utilities';
 import ShortUniqueId from 'short-unique-id'
@@ -45,7 +46,7 @@ export default function Cart() {
                     })}
                 </section>
             </div>
-        
+            <Footer />
             
 
         </div>
