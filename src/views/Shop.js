@@ -24,10 +24,12 @@ export default function Shop() {
                         return(
                             <div className="product" key={key}>
                                 <img className="product__image" src={product.image} alt={product.title} />
-                                <h4 className="product__title">{product.title}</h4>
-                                <p className="product__desc">Item No. {product.id}</p>
-                                <strong className="product__price">{product.price}</strong>
-                                <button className="product__button" onClick={() => addItemToCart(product, state, dispatch, uid)}>Add to Cart</button>
+                                <div className="product__details">
+                                    <h4 className="product__title">{product.title}</h4>
+                                    <p className="product__desc">Item No. {product.id}</p>
+                                    <strong className="product__price">{product.price}</strong>
+                                    <button className="product__button" onClick={() => addItemToCart(product, state, dispatch, uid)}>Add to Cart</button>
+                                </div>
                             </div>
                         )
                     })}

@@ -17,7 +17,7 @@
         grid-column: 2/3;
 		padding: 2rem 3%;
 		grid-column-gap: 3%;
-		grid-row-gap: 7rem;
+		grid-row-gap: 10rem;
 		justify-content: center;
 		grid-template-columns: repeat(auto-fit, minmax(15rem, 0.4fr));
         justify-self: center;
@@ -27,6 +27,7 @@
     &__gallery-container{
         @include mixins.default-grid;
         grid-template-columns: 0.25fr 1fr 0.25fr;
+        margin-bottom: 7rem;
     }   
 
     
@@ -35,10 +36,54 @@
 .product{
     @include mixins.image-slot;
     padding-bottom: 100%;
+    position: relative;
 
     &__image{
 		@include mixins.cover-parent;
 		@include mixins.default-img;
 	}
+
+    &__details{
+        @include mixins.default-grid;
+        width: 100%;
+        position: absolute;
+        top: 107%;
+    }
+
+    &__title{
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &__desc{
+        color: (0,0,0,.75);
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 0.45rem;
+    }
+
+    &__price{
+        font-weight: bold;
+        text-align: center;
+        margin: 0.75rem 0;
+    }
+
+    &__button{
+        background: rgba(0,0,0,0.75);
+        border: none;
+        color: white;
+        text-transform: uppercase;
+        cursor: pointer;
+        width: 8rem;
+        border-radius: 0.7rem;
+        justify-self: center;
+        padding: 0.5rem;
+
+        &:hover{
+            background: black;
+        }
+    }
 
 }

@@ -8,7 +8,7 @@ const data = {
     products: [
         {
             image: product1,
-            title: 'Caverna: Cave Vs. Cave - The Big Box',
+            title: 'Caverna: Cave Vs. Cave',
             price: '$44.99',
             id: 'LK0144'
         },
