@@ -5,9 +5,9 @@ import { gsap } from "gsap";
 
 export default function Carousel() {
   const [slideIndex, setSlideIndex] = useState(0)
+  const [outgoingSlide, setOutgoingSlide] = useState(0)
   const [ready, setReady] = useState(true)
   const [pause, setPause] = useState(false)
-  const [outgoingSlide, setOutgoingSlide] = useState(0)
   
   const slides = [
     {   imageClass: 'carousel__image carousel__image_jabba',
@@ -35,29 +35,33 @@ export default function Carousel() {
 
       
     // Go to slide index.
-  const goToSlide = (index) => {
+  const goToSlide = (oldSlide, newSlide) => {
     setReady(false)
-    console.log(outgoingSlide, slideIndex)
-    if((slideIndex === 0 && outgoingSlide === slides.length-1) || slideIndex > outgoingSlide) gsap.from(slides[index].ref.current, {x:'100%'})
-    else if(slideIndex===slides.length-1 && outgoingSlide === 0 || slideIndex < outgoingSlide) gsap.from(slides[index].ref.current, {x:'-100%'})
-    
-    
-    
-
+    setSlideIndex(newSlide)
+    setOutgoingSlide(oldSlide)
+    console.log(oldSlide, newSlide)
+    if(newSlide === 0 && oldSlide === slides.length-1) gsap.from(slides[newSlide].ref.current, {x:'100%'})
+    else if(oldSlide === 0 && newSlide === slides.length-1 || newSlide < oldSlide) gsap.from(slides[newSlide].ref.current, {x:'-100%'})
+    else gsap.from(slides[newSlide].ref.current, {x:'100%'})
+    setTimeout(() => {setReady(true)}, 500);
   };
   
   // Go to previous  slide.
-  const goToPreviousSlide = (index) => {
-    setOutgoingSlide(slideIndex)
-    const prevIndex = index - 1 >= 0 ? index - 1 : slides.length - 1;
-    setSlideIndex(prevIndex)
-    goToSlide(slideIndex);
+  const goToPreviousSlide = () => {
+    if(ready){
+      const oldSlide = slideIndex
+      const newSlide = slideIndex - 1 >= 0 ? slideIndex - 1 : slides.length - 1;
+      goToSlide(oldSlide, newSlide);
+    }
   };
 
   // Go to next slide.
-  const goToNextSlide = (index) => {
-    const nextIndex = index + 1 <= slides.length - 1 ? index + 1 : 0;
-    goToSlide(nextIndex);
+  const goToNextSlide = () => {
+    if(ready){
+      const oldSlide = slideIndex
+      const newSlide = slideIndex + 1 <= slides.length - 1 ? slideIndex + 1 : 0;
+      goToSlide(oldSlide, newSlide);
+    }
   };
 
   const pauseShow = () => {
@@ -97,9 +101,9 @@ export default function Carousel() {
             );   
         })}
         <div className="slide-controls">
-            <button className="slide-controls__return" onClick={() => goToPreviousSlide(slideIndex)}><FontAwesomeIcon icon="chevron-left" /></button>
+            <button className="slide-controls__return" onClick={() => goToPreviousSlide()}><FontAwesomeIcon icon="chevron-left" /></button>
             <button className="slide-controls__pause" onClick={() => pauseShow()}><FontAwesomeIcon icon="pause" /></button>
-            <button className="slide-controls__advance" onClick={() => goToNextSlide(slideIndex)}><FontAwesomeIcon icon="chevron-right" /></button>
+            <button className="slide-controls__advance" onClick={() => goToNextSlide()}><FontAwesomeIcon icon="chevron-right" /></button>
         </div>
     </section>
   )
