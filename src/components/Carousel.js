@@ -1,4 +1,4 @@
-import {useEffect, useLayoutEffect, useRef, useState} from 'react';
+import {useEffect, useCallback, useRef, useState} from 'react';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { gsap } from "gsap";
@@ -35,10 +35,10 @@ export default function Carousel() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if(!pause) goToNextSlide()
+      if(!pause && ready) advanceSlide()
     }, 5000);
     return () => clearInterval(interval);
-  }, [pause]);
+  }, [pause, ready]);
 
       
     // Go to slide index.
@@ -54,7 +54,7 @@ export default function Carousel() {
   };
   
   // Go to previous  slide.
-  const goToPreviousSlide = () => {
+  const returnSlide = () => {
     if(ready){
       const oldSlide = slideIndex
       const newSlide = slideIndex - 1 >= 0 ? slideIndex - 1 : slides.length - 1;
@@ -63,7 +63,7 @@ export default function Carousel() {
   };
 
   // Go to next slide.
-  const goToNextSlide = () => {
+  const advanceSlide = () => {
     if(ready){
       const oldSlide = slideIndex
       const newSlide = slideIndex + 1 <= slides.length - 1 ? slideIndex + 1 : 0;
@@ -108,9 +108,9 @@ export default function Carousel() {
             );   
         })}
         <div className="slide-controls">
-            <button className="slide-controls__return" onClick={() => goToPreviousSlide()}><FontAwesomeIcon icon="chevron-left" /></button>
+            <button className="slide-controls__return" onClick={() => returnSlide()}><FontAwesomeIcon icon="chevron-left" /></button>
             <button className="slide-controls__pause" onClick={() => pauseShow()}><FontAwesomeIcon icon={pause ? "play" : "pause"} /></button>
-            <button className="slide-controls__advance" onClick={() => goToNextSlide()}><FontAwesomeIcon icon="chevron-right" /></button>
+            <button className="slide-controls__advance" onClick={() => advanceSlide()}><FontAwesomeIcon icon="chevron-right" /></button>
         </div>
     </section>
   )
