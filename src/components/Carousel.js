@@ -33,13 +33,20 @@ export default function Carousel() {
     },
   ]
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(!pause) goToNextSlide()
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [pause]);
+
       
     // Go to slide index.
   const goToSlide = (oldSlide, newSlide) => {
     setReady(false)
+    console.log(oldSlide, newSlide)
     setSlideIndex(newSlide)
     setOutgoingSlide(oldSlide)
-    console.log(oldSlide, newSlide)
     if(newSlide === 0 && oldSlide === slides.length-1) gsap.from(slides[newSlide].ref.current, {x:'100%'})
     else if(oldSlide === 0 && newSlide === slides.length-1 || newSlide < oldSlide) gsap.from(slides[newSlide].ref.current, {x:'-100%'})
     else gsap.from(slides[newSlide].ref.current, {x:'100%'})
@@ -65,7 +72,7 @@ export default function Carousel() {
   };
 
   const pauseShow = () => {
-
+    setPause(!pause)
   }
 
   return (
@@ -102,7 +109,7 @@ export default function Carousel() {
         })}
         <div className="slide-controls">
             <button className="slide-controls__return" onClick={() => goToPreviousSlide()}><FontAwesomeIcon icon="chevron-left" /></button>
-            <button className="slide-controls__pause" onClick={() => pauseShow()}><FontAwesomeIcon icon="pause" /></button>
+            <button className="slide-controls__pause" onClick={() => pauseShow()}><FontAwesomeIcon icon={pause ? "play" : "pause"} /></button>
             <button className="slide-controls__advance" onClick={() => goToNextSlide()}><FontAwesomeIcon icon="chevron-right" /></button>
         </div>
     </section>
