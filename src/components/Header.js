@@ -15,15 +15,15 @@ export default function Header() {
     const navigate = useNavigate();
 
 
-    const menuToggle = () => {
+    const menuToggle = (e) => {
         setMenuOpen(!menuOpen)
-        const pauseState = state.pause
-        dispatch ({type: 'TOGGLE_PAUSE', payload: !pauseState})
+        console.log(e)
+        dispatch ({type: 'TOGGLE_PAUSE', payload: true})
     }
 
     return(
         <header className="header">
-            <button className="toggle" onClick={menuToggle}><FontAwesomeIcon className="toggle__bars" icon="bars" /></button>
+            <button className="toggle" onClick={(e) => menuToggle(e)}><FontAwesomeIcon className="toggle__bars" icon="bars" /></button>
             <div className="logo__container">
             <button className="logo" onClick={() => navigate('/')}><img className="logo__image" src="https://www.zmangames.com/static/images/zman_white_logo.8bc6e70a08d3.svg" alt="logo"/></button>
             </div>
