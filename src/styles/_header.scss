@@ -24,7 +24,7 @@
         height: 2.25rem;
         width: 2.25rem;
         place-self: center center;
-        z-index: 3;
+        z-index: 102;
         border-radius: 0.2rem;
         padding: 0;
     }
@@ -48,7 +48,7 @@
         height: 2.25rem;
         width: 2.25rem;
         place-self: center center;
-        z-index: 3;
+        z-index: 102;
         border-radius: 0.2rem;
         padding: 0;
 
@@ -75,7 +75,7 @@
         left: -100%;
         transition: .3s all ease-in;
         top: 0;
-        z-index: 2;
+        z-index: 101;
         background: whitesmoke;
         @include mixins.default-grid;
 
@@ -115,7 +115,7 @@
         height: 100%;
         pointer-events: none;
         opacity: 0;
-        z-index: 1;
+        z-index: 100;
         transition: .3s all ease-in;
       
         &--open{

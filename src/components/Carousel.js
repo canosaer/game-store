@@ -1,13 +1,13 @@
-import {useEffect, useCallback, useRef, useState} from 'react';
-import { useWindowSize } from '../hooks/useWindowSize';
+import { useEffect, useRef, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { gsap } from "gsap";
+import { Context } from '../store/store'
 
 export default function Carousel() {
   const [slideIndex, setSlideIndex] = useState(0)
   const [outgoingSlide, setOutgoingSlide] = useState(0)
   const [ready, setReady] = useState(true)
-  const [pause, setPause] = useState(false)
+  const [state, dispatch] = useContext(Context)
   
   const slides = [
     {   imageClass: 'carousel__image carousel__image_jabba',
@@ -35,10 +35,10 @@ export default function Carousel() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if(!pause && ready) advanceSlide()
+      if(!state.pause && ready) advanceSlide(null)
     }, 5000);
     return () => clearInterval(interval);
-  }, [pause, ready]);
+  }, [state, ready]);
 
       
     // Go to slide index.
@@ -54,8 +54,9 @@ export default function Carousel() {
   };
   
   // Go to previous  slide.
-  const returnSlide = () => {
+  const returnSlide = (e) => {
     if(ready){
+      if(!state.pause && e) dispatch ({type: 'TOGGLE_PAUSE', payload: true})
       const oldSlide = slideIndex
       const newSlide = slideIndex - 1 >= 0 ? slideIndex - 1 : slides.length - 1;
       goToSlide(oldSlide, newSlide);
@@ -63,8 +64,9 @@ export default function Carousel() {
   };
 
   // Go to next slide.
-  const advanceSlide = () => {
+  const advanceSlide = (e) => {
     if(ready){
+      if(!state.pause && e) dispatch ({type: 'TOGGLE_PAUSE', payload: true})
       const oldSlide = slideIndex
       const newSlide = slideIndex + 1 <= slides.length - 1 ? slideIndex + 1 : 0;
       goToSlide(oldSlide, newSlide);
@@ -72,7 +74,8 @@ export default function Carousel() {
   };
 
   const pauseShow = () => {
-    setPause(!pause)
+    const pauseState = state.pause
+    dispatch ({type: 'TOGGLE_PAUSE', payload: !pauseState})
   }
 
   return (
@@ -108,9 +111,9 @@ export default function Carousel() {
             );   
         })}
         <div className="slide-controls">
-            <button className="slide-controls__return" onClick={() => returnSlide()}><FontAwesomeIcon icon="chevron-left" /></button>
-            <button className="slide-controls__pause" onClick={() => pauseShow()}><FontAwesomeIcon icon={pause ? "play" : "pause"} /></button>
-            <button className="slide-controls__advance" onClick={() => advanceSlide()}><FontAwesomeIcon icon="chevron-right" /></button>
+            <button className="slide-controls__return" onClick={(e) => returnSlide(e)}><FontAwesomeIcon icon="chevron-left" /></button>
+            <button className="slide-controls__pause" onClick={() => pauseShow()}><FontAwesomeIcon icon={state.pause ? "play" : "pause"} /></button>
+            <button className="slide-controls__advance" onClick={(e) => advanceSlide(e)}><FontAwesomeIcon icon="chevron-right" /></button>
         </div>
     </section>
   )

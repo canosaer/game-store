@@ -5,6 +5,7 @@ import product3 from '../img/product3.png'
 const data = {
 
     cart: [],
+    pause: false,
     products: [
         {
             image: product1,
