@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import {Context} from '../store/store'
 import { sortByKey, addItemToCart } from '../utilities';
 import ShortUniqueId from 'short-unique-id'
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
     const [state, dispatch] = useContext(Context)
@@ -16,40 +17,49 @@ export default function Cart() {
     }
 
     const visualCart = sortByKey(state.cart, 'title')
-    console.log(visualCart)
+    if(Object.entries(visualCart)){
+        
+    }
    
     return(
-        <div>
+        <>
             <Header />
             <h2 className="shop__heading">Cart</h2>
-            <div className="shop__gallery-container">
-                <section className="shop__gallery">
-                    {Object.entries(visualCart).map((p, i) => {
-                        const key = `cart-item--${i}`
-                        const product = p[1][0]
-                        return (
-                            <div className="product" key={key}>
-                                <img className="product__image" src={product.image} alt={product.title} />
-                                <div className="product__details">
-                                    <h4 className="product__title">{product.title}</h4>
-                                    <p className="product__desc">Item No. {product.id}</p>
-                                    <strong className="product__price">{product.price}</strong>
-                                    <div className="product__controls">
-                                        <button className="product__remove" onClick={() => removeItem(product)}>-</button>
-                                        <span className="product__num">x{p[1].length}</span>
-                                        <button className="product__add" onClick={() => addItemToCart(product, state, dispatch, uid)}>+</button>
+            {Object.entries(visualCart)[0] ? 
+                <div className="shop__gallery-container">
+                    <section className="shop__gallery">
+                        {Object.entries(visualCart).map((p, i) => {
+                            const key = `cart-item--${i}`
+                            const product = p[1][0]
+                            return (
+                                <div className="product" key={key}>
+                                    <img className="product__image" src={product.image} alt={product.title} />
+                                    <div className="product__details">
+                                        <h4 className="product__title">{product.title}</h4>
+                                        <p className="product__desc">Item No. {product.id}</p>
+                                        <strong className="product__price">{product.price}</strong>
+                                        <div className="product__controls">
+                                            <button className="product__remove" onClick={() => removeItem(product)}>-</button>
+                                            <span className="product__num">x{p[1].length}</span>
+                                            <button className="product__add" onClick={() => addItemToCart(product, state, dispatch, uid)}>+</button>
+                                        </div>
+                                        
                                     </div>
-                                    
                                 </div>
-                            </div>
-                        )
-                    })}
-                </section>
-            </div>
+                            )
+                        })}
+                    </section>
+                </div>
+            :
+                <p className="empty-cart">Your cart is empty.</p>
+            }
+
+            <Link className="product__button product__button_cart" to="/shop">Add Items</Link>
+            
             <Footer />
             
 
-        </div>
+        </>
     )
 }
 
