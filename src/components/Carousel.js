@@ -44,7 +44,6 @@ export default function Carousel() {
     // Go to slide index.
   const goToSlide = (oldSlide, newSlide) => {
     setReady(false)
-    console.log(oldSlide, newSlide)
     setSlideIndex(newSlide)
     setOutgoingSlide(oldSlide)
     if(newSlide === 0 && oldSlide === slides.length-1) gsap.from(slides[newSlide].ref.current, {x:'100%'})

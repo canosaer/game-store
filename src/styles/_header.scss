@@ -18,17 +18,6 @@
         outline: none;
     }
 
-    .toggle{
-        color: var(--gray);
-        font-size: 2.25rem;
-        height: 2.25rem;
-        width: 2.25rem;
-        place-self: center center;
-        z-index: 103;
-        border-radius: 0.2rem;
-        padding: 0;
-    }
-
     .logo{
         width: 7.25rem;
         place-self: center center;
@@ -82,7 +71,7 @@
         &__list{
             margin-top: 7.5rem;
             @include mixins.default-grid;
-            grid-auto-rows: 3.25rem;
+            grid-auto-rows: 3.5rem;
             justify-content: right;
             font-size: 1.5rem;
         }
@@ -126,3 +115,101 @@
 
 
 }
+
+.toggle{
+	height: 1.5rem;
+	width: 1.75rem;
+    place-self: center center;
+	z-index: 103;
+	border-radius: 0.2rem;
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	position: relative;
+
+	&__bar{
+		position: absolute;
+		width: 100%;
+		height: 3px;
+		background-color: var(--gray);
+		transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out, top 0.25s ease-in-out;
+
+		&_0{
+			top: 0;
+		}
+		
+		&_1{
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&_2{
+			bottom: 0;
+		}
+
+		&_0.toggle__bar_open{
+			background-color: black;
+			transform: rotate(-45deg) translateY(-50%);
+			top: 50%;
+		}
+
+		&_1.toggle__bar_open{
+			opacity: 0;
+		}
+
+		&_2.toggle__bar_open{
+			background-color: black;
+			transform: rotate(45deg) translateY(-50%);
+			top: 50%;
+		}
+	}
+
+
+}
+
+// .menu{
+// 	position: fixed;
+// 	width: 300px;
+// 	height: 100%;
+// 	left: -100%;
+// 	transition: .3s all ease-in;
+// 	top: 0;
+// 	z-index: 102;
+// 	background: black;
+// 	@include mixins.default-grid;
+
+// 	&__list{
+// 		margin-top: 8.9rem;
+// 		@include mixins.default-grid;
+// 		grid-auto-rows: 3.9rem;
+// 		justify-content: right;
+// 		font-size: 1.5rem;
+// 	}
+
+// 	&__link{
+// 		color: var(--gray);
+// 		font-weight: bold;
+// 		text-transform: uppercase;
+//         transition: color 250ms ease-in-out;
+
+// 		&:hover{
+// 			color: black;
+// 		}
+// 	}
+
+// 	&_open{
+// 		background: white;
+// 		width: 23rem;
+// 		opacity: 1;
+// 		visibility: unset;
+// 		right: 0;
+// 	}
+
+// 	&__item{
+// 		display: flex;
+// 		justify-content: right;
+// 		padding-right: 3rem;
+		
+// 	}
+// }
