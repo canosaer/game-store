@@ -3,10 +3,23 @@
 
 .news{
     @include mixins.default-grid;
-    margin-top: 11rem;
+    margin-top: 22rem;
     padding: 1rem;
 
+    @media (min-width: 417px){
+        margin-top: 19rem;
+    }
+
+    @media (min-width: 476px){
+        margin-top: 15rem;
+    }
+
+    @media (min-width: 479px){
+        margin-top: 13rem;
+    }
+
     @include mixins.landscape{
+        margin-top: 11rem;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-gap: 1rem;
     }
@@ -59,6 +72,18 @@
         padding: 1rem 1rem 7rem;
         transition: top .3s ease-in-out;
         color: white;
+
+        @include mixins.landscape{
+            top: 12.75rem;
+        }
+
+        @media (min-width: 861px){
+            top: 13.75rem;
+        }
+
+        @media (min-width: 1210px){
+            top: 15rem;
+        }
 
         &:hover {
 			top: 5rem;

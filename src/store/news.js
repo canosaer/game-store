@@ -20,7 +20,7 @@ const news = {
             game: 'Love Letter',
             headline: "Announcing Star Wars: Jabba's Palace - A Love Letter Game",
             id: 2022223001,
-            excerpt: "The lair of Jabba, the Hutt is a place of danger and deception. In Star Wars: Jabba’s Palace - A Love Letter Game, players compete using members of the Rebel Alliance and denizens of Jabba’s Palace in a game of rebel bravery and vile deceit.",
+            excerpt: "The lair of Jabba the Hutt is a place of danger and deception. In Star Wars: Jabba’s Palace - A Love Letter Game, players compete using members of the Rebel Alliance and denizens of Jabba’s Palace in a game of rebel bravery and vile deceit.",
         },
         
     ]
