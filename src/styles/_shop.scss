@@ -25,9 +25,12 @@
     }
 
     &__gallery-container{
-        @include mixins.default-grid;
-        grid-template-columns: 0.2fr 1fr 0.2fr;
         margin-bottom: 8.5rem;
+
+        @include mixins.landscape{
+            @include mixins.default-grid;
+            grid-template-columns: 0.2fr 1fr 0.2fr;
+        }
     }   
 
     
@@ -72,6 +75,10 @@
 
     &__button{
         @include mixins.product-button;
+
+        &_cart{
+            place-self: center center;
+        }
     }
 
     &__controls{
