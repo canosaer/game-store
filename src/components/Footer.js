@@ -9,7 +9,7 @@ export default function Footer() {
 
     return(
         <footer className="footer">
-            <Link to="/" className="footer__faq">FAQ</Link>
+            <Link className="footer__link" to="/">FAQ</Link>
             <p className="footer__copyright">&copy; {new Date().getFullYear()} Z-Man Games</p>
             <div className="footer__social-display">
                 <Link to="/" className="footer__social-button">

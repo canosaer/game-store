@@ -71,19 +71,19 @@
         &__list{
             margin-top: 7.5rem;
             @include mixins.default-grid;
-            grid-auto-rows: 3.5rem;
+            grid-auto-rows: 4.15rem;
             justify-content: right;
             font-size: 1.5rem;
         }
 
         &__item{
-            display: flex;
-            justify-content: right;
-            padding-right: 3rem;
+            @include mixins.default-grid;
+            padding: 0 3rem;
         }
 
         &__link{
             color: black;
+            place-self: center right;
 
             &:hover{
                 text-decoration: underline;
