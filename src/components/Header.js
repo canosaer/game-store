@@ -51,14 +51,14 @@ export default function Header() {
 
         if(menuOpen){
             window.scrollTo(0,0)
-            // lockScroll()
+            lockScroll()
             for(let i=0;i<3; i++){
                 toggleArray[i] = toggleArray[i] + ` toggle__bar_${i} toggle__bar_open`
             }
             setToggleBars(toggleArray)
         }
         else{
-            // unlockScroll()
+            unlockScroll()
             for(let i=0;i<3; i++){
                 toggleArray[i] = toggleArray[i] + ` toggle__bar_${i}`
             }
