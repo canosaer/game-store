@@ -3,22 +3,33 @@
 
 .footer{
     @include mixins.default-grid;
+    grid-template-columns: 1fr 1fr 1fr;
     margin-top: 3.5rem;
 	border-top: 1px solid lightgray;
 	padding: 4%;
-	display: flex;
-	justify-content: space-between;
 	font-size: 0.875rem;
     align-items: center;
 
-	&__text{
-		color: #909097;
+	&__copyright{
+		grid-column: 2/3;
+        place-self: center center;
+        color: #909097;
         text-align: center;
+        margin: 0 0.7rem;
 	}
 
 	&__link{
 		color: blue;
 	}
+
+    &__social-display{
+        display: flex;
+        grid-column: 3/4;
+        align-items: center;
+        place-self: center right;
+        justify-content: space-between;
+
+    }
 
     &__social-icon{
         background: none;
@@ -26,9 +37,14 @@
         color: rgba(0,0,0,0.75);
         font-size: 1.3rem;
         cursor: pointer;
+        margin-right: 0.75rem;
 
         &:hover{
             color:black;
+        }
+
+        &_twitter{
+            margin-right: unset;
         }
     }
 }

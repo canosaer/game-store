@@ -9,18 +9,18 @@ export default function Footer() {
 
     return(
         <footer className="footer">
-            <Link className="footer__link" to="/">FAQ</Link>
+            <a className="footer__link" href="#">FAQ</a>
             <p className="footer__copyright">&copy; {new Date().getFullYear()} Z-Man Games</p>
             <div className="footer__social-display">
-                <Link to="/" className="footer__social-button">
+                <a href="#" className="footer__social-button">
                     <button className="footer__social-icon"><FontAwesomeIcon icon={["fab", "facebook"]} /></button>
-                </Link>
-                <Link to="/" className="footer__social-button">
+                </a>
+                <a href="#" className="footer__social-button">
                     <button className="footer__social-icon"><FontAwesomeIcon icon={["fab", "instagram"]} /></button>
-                </Link>
-                <Link to="/" className="footer__social-button">
-                    <button className="footer__social-icon"><FontAwesomeIcon icon={["fab", "twitter"]} /></button>
-                </Link>
+                </a>
+                <a href="#" className="footer__social-button">
+                    <button className="footer__social-icon footer__social-icon_twitter"><FontAwesomeIcon icon={["fab", "twitter"]} /></button>
+                </a>
             </div>
         </footer>
     )
